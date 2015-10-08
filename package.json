@@ -25,6 +25,7 @@
     "yosay": "^1.0.2"
   },
   "devDependencies": {
+    "extend": "^3.0.0",
     "mocha": "*"
   }
 }

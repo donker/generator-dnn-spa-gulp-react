@@ -11,9 +11,9 @@ module.exports = {
       var st = fs.statSync(newPath);
       if (st.isDirectory()) {
         if (path === '') {
-          foundPaths = foundPaths.concat(that.recurseRead(basePath, el));
+          foundPaths = foundPaths.concat(that.getFilesRecursive(basePath, el));
         } else {
-          foundPaths = foundPaths.concat(that.recurseRead(basePath, path + '/' + el));
+          foundPaths = foundPaths.concat(that.getFilesRecursive(basePath, path + '/' + el));
         }
       } else {
         if (path === '') {
