@@ -48,12 +48,11 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: {
-    app: function() {
-    },
+    app: function() {},
 
     projectfiles: function() {
 
-      var files = util.recurseRead(this.templatePath(), '');
+      var files = util.getFilesRecursive(this.templatePath(), '');
       for (var i = files.length - 1; i >= 0; i--) {
         var dest = files[i].replace('Project', this.props.projectName)
                            .replace('_package', 'package')

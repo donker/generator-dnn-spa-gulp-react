@@ -2,7 +2,7 @@ var fs = require('fs');
 
 module.exports = {
 
-  recurseRead: function(basePath, path) {
+  getFilesRecursive: function(basePath, path) {
     var that = this;
     var foundPaths = [];
     var files = fs.readdirSync(basePath + '/' + path);
