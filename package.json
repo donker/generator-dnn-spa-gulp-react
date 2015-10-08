@@ -1,10 +1,17 @@
 {
   "name": "generator-dnn-spa-gulp-react",
-  "version": "0.0.1",
-  "description": "Yeoman generator",
+  "version": "0.1.0",
+  "description": "Yeoman generator for a DNN SPA module using Gulp and React",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "donker/generator-dnn-spa-gulp-react",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donker/generator-dnn-spa-gulp-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/donker/generator-dnn-spa-gulp-react/issues"
+  },
+  "homepage": "https://github.com/donker/generator-dnn-spa-gulp-react#readme",
   "author": {
     "name": "Peter Donker",
     "email": "peter@bring2mind.net",
@@ -21,11 +28,11 @@
   ],
   "dependencies": {
     "yeoman-generator": "^0.19.0",
+    "extend": "^3.0.0",
     "chalk": "^1.0.0",
     "yosay": "^1.0.2"
   },
   "devDependencies": {
-    "extend": "^3.0.0",
     "mocha": "*"
   }
 }
