@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Map Module")]
-[assembly: AssemblyDescription("Demo module used at DNN Connect 2015")]
+[assembly: AssemblyTitle("<%= props.projectName %> Module")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("DNN Connect")]
-[assembly: AssemblyProduct("Map")]
-[assembly: AssemblyCopyright("Copyright 2015 by DNN Connect")]
+[assembly: AssemblyCompany("<%= props.organization %>")]
+[assembly: AssemblyProduct("<%= props.projectName %>")]
+[assembly: AssemblyCopyright("Copyright 2015 by <%= props.organization %>")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

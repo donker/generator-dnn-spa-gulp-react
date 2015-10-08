@@ -6,8 +6,8 @@ var gulp = require('gulp'),
   assemblyInfo = require('gulp-dotnet-assembly-info'),
   plumber = require('gulp-plumber'),
   config = require('./package.json'),
-  zip = require("gulp-zip"),
-  filter = require("gulp-filter"),
+  zip = require('gulp-zip'),
+  filter = require('gulp-filter'),
   merge = require('merge2'),
   gutil = require('gulp-util'),
   manifest = require('./node_modules/gulp-dnn-manifest/plugin.js');
@@ -128,12 +128,6 @@ gulp.task('packageSource', ['browserify', 'build'], function() {
 gulp.task('package', ['packageInstall', 'packageSource'], function() {
   return null;
 })
-
-gulp.task('test', [], function() {
-  gulp.src('./_Installation/<%= props.organization %>.<%= props.projectName %>.dnn')
-    .pipe(manifest(config))
-    .pipe(gulp.dest('.'));
-});
 
 gulp.task('default', ['browserify']);
 

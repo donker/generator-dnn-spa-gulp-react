@@ -1,20 +1,20 @@
 <dotnetnuke type="Package" version="5.0">
  <packages>
-  <package name="Map" type="Module" version="00.00.01">
+  <package name="<%= props.projectName %>" type="Module" version="00.00.01">
    <components>
     <component type="Module">
      <desktopModule>
-      <moduleName>Connect_Map</moduleName>
-      <foldername>Connect/Map</foldername>
+      <moduleName><%= props.organization %>_<%= props.projectName %></moduleName>
+      <foldername><%= props.organization %>/<%= props.projectName %></foldername>
       <supportedFeatures />
       <moduleDefinitions>
        <moduleDefinition>
-        <friendlyName>Connect Map</friendlyName>
+        <friendlyName><%= props.organization %> <%= props.projectName %></friendlyName>
         <defaultCacheTime>0</defaultCacheTime>
         <moduleControls>
          <moduleControl>
           <controlKey />
-          <controlSrc>DesktopModules/Connect/Map/Map.html</controlSrc>
+          <controlSrc>DesktopModules/<%= props.organization %>/<%= props.projectName %>/<%= props.projectName %>.html</controlSrc>
           <supportsPartialRendering>False</supportsPartialRendering>
           <controlTitle />
           <controlType>View</controlType>
@@ -23,9 +23,6 @@
           <viewOrder>0</viewOrder>
          </moduleControl>
         </moduleControls>
-        <permissions>
-         <permission code="CONNECT_MAP_MODULE" key="POINTER" name="Map Pointers"/>
-        </permissions>
        </moduleDefinition>
       </moduleDefinitions>
      </desktopModule>

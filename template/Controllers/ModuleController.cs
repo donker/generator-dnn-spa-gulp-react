@@ -13,7 +13,7 @@ namespace <%= props.organization %>.DNN.Modules.<%= props.projectName %>.Control
         public class InitData
         {
             public ModuleSettings Settings { get; set; }
-            public IEnumerable<MapPoint> MapPoints { get; set; }
+            public IEnumerable<<%= props.widgetName %>> <%= props.widgetName %>s { get; set; }
             public ContextSecurity Security { get; set; }
             public Dictionary<string, string> ClientResources { get; set; }
         }

@@ -1,6 +1,6 @@
-var ConnectMapService = function ($, mid) {
+var <%= props.organization %><%= props.projectName %>Service = function ($, mid) {
     var moduleId = mid;
-    var baseServicepath = $.dnnSF(moduleId).getServiceRoot('Connect/Map');
+    var baseServicepath = $.dnnSF(moduleId).getServiceRoot('<%= props.organization %>/<%= props.projectName %>');
 
     this.ajaxCall = function(type, controller, action, id, data, success, fail) {
         // showLoading();
@@ -30,14 +30,14 @@ var ConnectMapService = function ($, mid) {
         this.ajaxCall('POST', 'Settings', 'Update', null, newSettings, success);
     }
 
-    this.submitPoint = function(newMapPoint, success) {
-        this.ajaxCall('POST', 'MapPoints', 'MapPoint', null, newMapPoint, success);
+    this.submitPoint = function(new<%= props.widgetName %>, success) {
+        this.ajaxCall('POST', '<%= props.widgetName %>s', '<%= props.widgetName %>', null, new<%= props.widgetName %>, success);
     }
 
-    this.deletePoint = function(mapPointId, success) {
-        this.ajaxCall('POST', 'MapPoints', 'Delete', mapPointId, null, success);
+    this.deletePoint = function(id, success) {
+        this.ajaxCall('POST', '<%= props.widgetName %>s', 'Delete', id, null, success);
     }
 
 }
 
-module.exports = ConnectMapService;
+module.exports = <%= props.organization %><%= props.projectName %>Service;

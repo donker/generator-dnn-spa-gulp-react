@@ -1,4 +1,4 @@
-[JavaScript:{ path: "~/DesktopModules/Connect/Map/js/react.min.js"}]
-[JavaScript:{ path: "~/DesktopModules/Connect/Map/js/map.js"}]
-<div class="connectMap" data-moduleid="[ModuleContext:ModuleId]"></div>
+[JavaScript:{ path: "~/DesktopModules/<%= props.organization %>/<%= props.projectName %>/js/react.min.js"}]
+[JavaScript:{ path: "~/DesktopModules/<%= props.organization %>/<%= props.projectName %>/js/<%= props.projectName.toLowerCase() %>.js"}]
+<div class="<%= props.organization.toLowerCase() %><%= props.projectName %>" data-moduleid="[ModuleContext:ModuleId]"></div>
 

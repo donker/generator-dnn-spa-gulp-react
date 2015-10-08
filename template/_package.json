@@ -1,22 +1,22 @@
 {
-  "name": "map",
+  "name": "<%= props.projectName %>",
   "version": "01.00.00",
-  "description": "Demo module used at DNN Connect 2015",
+  "description": "Demo module used at DNN <%= props.organization %> 2015",
   "dnnModule": {
-    "fullName": "Connect.Map",
-    "friendlyName": "Map Module",
-    "packageName": "Connect_Map",
+    "fullName": "<%= props.organization %>.<%= props.projectName %>",
+    "friendlyName": "<%= props.projectName %> Module",
+    "packageName": "<%= props.organization %>_<%= props.projectName %>",
     "owner": {
-      "name": "Peter Donker",
-      "organization": "DNN Connect",
-      "url": "http://dnn-connect.org",
-      "email": "peter@bring2mind.net"
+      "name": "<%= props.name %>",
+      "organization": "<%= props.organization %>",
+      "url": "<%= props.url %>.org",
+      "email": "<%= props.email %>"
     },
     "module": {
-      "packageName": "Connect_Map",
-      "folderName": "Connect/Map",
+      "packageName": "<%= props.organization %>_<%= props.projectName %>",
+      "folderName": "<%= props.organization %>/<%= props.projectName %>",
       "azureCompatible": "true",
-      "iconFile": "DesktopModules\\Connect\\Map\\map.png"
+      "iconFile": "DesktopModules\\<%= props.organization %>\\<%= props.projectName %>\\<%= props.projectName.toLowerCase() %>.png"
     },
     "tempPath": "./package",
     "packagesPath": "./_Packages",
@@ -35,14 +35,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DNN-Connect/Map.git"
+    "url": "git+https://github.com/<%= props.organization %>/<%= props.projectName %>.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DNN-Connect/Map/issues"
+    "url": "https://github.com/DNN-<%= props.organization %>/<%= props.projectName %>/issues"
   },
-  "homepage": "https://github.com/DNN-Connect/Map#readme",
+  "homepage": "https://github.com/DNN-<%= props.organization %>/<%= props.projectName %>#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",

@@ -1,14 +1,14 @@
 using System.Runtime.Serialization;
 using DotNetNuke.ComponentModel.DataAnnotations;
 
-namespace Connect.DNN.Modules.Map.Models.MapPoints
+namespace <%= props.organization %>.DNN.Modules.<%= props.projectName %>.Models.<%= props.widgetName %>s
 {
 
-    [TableName("vw_Connect_Map_MapPoints")]
-    [PrimaryKey("MapPointId", AutoIncrement = true)]
+    [TableName("vw_<%= props.organization %>_<%= props.projectName %>_<%= props.widgetName %>s")]
+    [PrimaryKey("<%= props.widgetName %>Id", AutoIncrement = true)]
     [Scope("ModuleId")]
     [DataContract]
-    public class MapPoint : MapPointBase
+    public class <%= props.widgetName %> : <%= props.widgetName %>Base
     {
 
         #region Public Properties
@@ -19,17 +19,15 @@ namespace Connect.DNN.Modules.Map.Models.MapPoints
         #endregion
 
         #region Public Methods
-        public MapPointBase GetMapPointBase()
+        public <%= props.widgetName %>Base Get<%= props.widgetName %>Base()
         {
-            MapPointBase res = new MapPointBase();
+            <%= props.widgetName %>Base res = new <%= props.widgetName %>Base();
             res.CreatedByUserID = CreatedByUserID;
             res.CreatedOnDate = CreatedOnDate;
             res.LastModifiedByUserID = LastModifiedByUserID;
             res.LastModifiedOnDate = LastModifiedOnDate;
-            res.MapPointId = MapPointId;
+            res.<%= props.widgetName %>Id = <%= props.widgetName %>Id;
             res.ModuleId = ModuleId;
-            res.Latitude = Latitude;
-            res.Longitude = Longitude;
             res.Message = Message;
             return res;
         }

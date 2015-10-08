@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Connect.DNN.Modules.Map</RootNamespace>
-    <AssemblyName>Connect.DNN.Modules.Map</AssemblyName>
+    <RootNamespace><%= props.organization %>.DNN.Modules.<%= props.projectName %></RootNamespace>
+    <AssemblyName><%= props.organization %>.DNN.Modules.<%= props.projectName %></AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
@@ -73,24 +73,23 @@
     <Compile Include="Common\Globals.cs" />
     <Compile Include="Common\ISettingsStore.cs" />
     <Compile Include="Common\Localization.cs" />
-    <Compile Include="Common\MapApiController.cs" />
-    <Compile Include="Common\MapAuthorizeAttribute.cs" />
+    <Compile Include="Common\<%= props.projectName %>ApiController.cs" />
+    <Compile Include="Common\<%= props.projectName %>AuthorizeAttribute.cs" />
     <Compile Include="Common\ModuleScopedSettings.cs" />
     <Compile Include="Common\ModuleSettings.cs" />
     <Compile Include="Common\PortalScopedSettings.cs" />
     <Compile Include="Common\RouteMapper.cs" />
     <Compile Include="Common\StringBasedSettings.cs" />
     <Compile Include="Common\TabModuleScopedSettings.cs" />
-    <Compile Include="Controllers\MapPointsController.cs" />
-    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\<%= props.widgetName %>sController.cs" />
     <Compile Include="Controllers\ModuleController.cs" />
-    <Compile Include="Controllers\MapPointsController_Services.cs" />
+    <Compile Include="Controllers\<%= props.widgetName %>sController_Services.cs" />
     <Compile Include="Data\RepositoryImpl.cs" />
-    <Compile Include="Models\MapPoints\MapPoint.cs" />
-    <Compile Include="Models\MapPoints\MapPointBase.cs" />
+    <Compile Include="Models\<%= props.widgetName %>s\<%= props.widgetName %>.cs" />
+    <Compile Include="Models\<%= props.widgetName %>s\<%= props.widgetName %>Base.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\MapPointBaseRepository.cs" />
-    <Compile Include="Repositories\MapPointRepository.cs" />
+    <Compile Include="Repositories\<%= props.widgetName %>BaseRepository.cs" />
+    <Compile Include="Repositories\<%= props.widgetName %>Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
@@ -104,7 +103,7 @@
     <Content Include="App_LocalResources\SharedResources.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="_Installation\Connect.Map.dnn" />
+    <Content Include="_Installation\<%= props.organization %>.<%= props.projectName %>.dnn" />
     <Content Include="_Installation\SQL\01.00.00.SqlDataProvider" />
     <Content Include="_Installation\SQL\Uninstall.SqlDataProvider" />
   </ItemGroup>
@@ -127,7 +126,7 @@
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>
           </DevelopmentServerVPath>
-          <IISUrl>http://dnndev.me/desktopmodules/Map</IISUrl>
+          <IISUrl>http://dnndev.me/desktopmodules/<%= props.projectName %></IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://dnndev.me</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

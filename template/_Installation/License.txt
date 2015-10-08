@@ -1,6 +1,6 @@
-DNN Connect - http://dnn-connect.org<br/>
+<%= props.organization %> - <%= props.url %><br/>
 Copyright (c) 2002-2015<br/>
-by DNN Connect
+by <%= props.organization %>
 <br/><br/>
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
