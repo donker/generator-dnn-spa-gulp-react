@@ -1,10 +1,19 @@
 'use strict';
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
-var util = require('./util.js');
+var yeoman = require('yeoman-generator'),
+    chalk = require('chalk'),
+    yosay = require('yosay'),
+    path = require('path'),
+    util = require('./util.js');
 
 module.exports = yeoman.generators.Base.extend({
+  
+  initializing: function() {
+    if (path.basename(this.destinationPath()).toLowerCase() !== 'desktopmodules') {
+      this.log('You must run this in the ' + chalk.red('DesktopModules') + ' folder!!');
+      process.exit();
+    }
+  },
+
   prompting: function() {
     var done = this.async();
 
@@ -55,8 +64,8 @@ module.exports = yeoman.generators.Base.extend({
       var files = util.getFilesRecursive(this.templatePath(), '');
       for (var i = files.length - 1; i >= 0; i--) {
         var dest = files[i].replace('Project', this.props.projectName)
-                           .replace('_package', 'package')
-                           .replace('Company', this.props.organization);
+          .replace('_package', 'package')
+          .replace('Company', this.props.organization);
         this.fs.copyTpl(
           this.templatePath(files[i]),
           this.destinationPath(dest), {
