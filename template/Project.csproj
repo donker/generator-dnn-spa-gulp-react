@@ -83,6 +83,7 @@
     <Compile Include="Common\TabModuleScopedSettings.cs" />
     <Compile Include="Controllers\<%= props.widgetName %>sController.cs" />
     <Compile Include="Controllers\ModuleController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\<%= props.widgetName %>sController_Services.cs" />
     <Compile Include="Data\RepositoryImpl.cs" />
     <Compile Include="Models\<%= props.widgetName %>s\<%= props.widgetName %>.cs" />
