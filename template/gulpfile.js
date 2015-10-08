@@ -10,6 +10,8 @@ var gulp = require('gulp'),
   filter = require('gulp-filter'),
   merge = require('merge2'),
   gutil = require('gulp-util'),
+  markdown = require('gulp-markdown'),
+  rename = require('gulp-rename'),
   manifest = require('./node_modules/gulp-dnn-manifest/plugin.js');
 
 gulp.task('browserify', function() {
@@ -88,7 +90,10 @@ gulp.task('packageInstall', ['browserify', 'build'], function() {
         config.dnnModule.pathToScripts + '/*.SqlDataProvider',
         config.dnnModule.pathToSupplementaryFiles + '/License.txt',
         config.dnnModule.pathToSupplementaryFiles + '/ReleaseNotes.txt'
-      ])
+      ]),
+      gulp.src(config.dnnModule.pathToSupplementaryFiles + '/ReleaseNotes.md')
+      .pipe(markdown())
+      .pipe(rename('ReleaseNotes.txt'))
     )
     .pipe(zip(packageName + '_Install.zip'))
     .pipe(gulp.dest(config.dnnModule.packagesPath));

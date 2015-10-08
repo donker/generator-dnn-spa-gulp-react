@@ -1,2 +1,0 @@
-<strong>Release Notes</strong>
-<div>Here are some notes</div>
