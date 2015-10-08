@@ -4,6 +4,7 @@ var yeoman = require('yeoman-generator'),
   yosay = require('yosay'),
   path = require('path'),
   extend = require('extend'),
+  fs = require('fs'),
   util = require('./util.js');
 
 module.exports = yeoman.generators.Base.extend({
@@ -13,6 +14,7 @@ module.exports = yeoman.generators.Base.extend({
   _defaults: {
     dnn: {
       organization: 'Connect',
+      url: 'http://dnn-connect.org',
       email: 'webmaster@dnn-connect.org',
       name: ''
     }
@@ -27,7 +29,11 @@ module.exports = yeoman.generators.Base.extend({
 
     this._configPath = this.sourceRoot() + '/../../../.yo-rc.json';
     this._config = extend(true, this._defaults, this.fs.readJSON(path.normalize(this._configPath)));
-    console.log(this._config);
+
+    String.prototype.replaceAll = function(find, replace) {
+      var str = this;
+      return str.replace(new RegExp(find, 'g'), replace);
+    };
 
   },
 
@@ -51,6 +57,11 @@ module.exports = yeoman.generators.Base.extend({
       }
     }, {
       type: 'input',
+      name: 'widgetName',
+      message: 'Name of your primary object',
+      default: 'Widget'
+    }, {
+      type: 'input',
       name: 'organization',
       message: 'Organization name (also used as subfolder and in namespaces)',
       default: this._config.dnn.organization,
@@ -61,6 +72,11 @@ module.exports = yeoman.generators.Base.extend({
           return "You must enter a name for the organization";
         }
       }
+    }, {
+      type: 'input',
+      name: 'url',
+      message: 'Url or your organization',
+      default: this._config.dnn.url
     }, {
       type: 'input',
       name: 'name',
@@ -91,6 +107,7 @@ module.exports = yeoman.generators.Base.extend({
         this._config.dnn.organization = this.props.organization;
         this._config.dnn.name = this.props.name;
         this._config.dnn.email = this.props.email;
+        this._config.dnn.url = this.props.url;
         this.fs.writeJSON(this._configPath, this._config);
       }
       this.sourceRoot(this.sourceRoot() + '/../../../template');
@@ -99,15 +116,21 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: {
-    app: function() {},
+    app: function() {
+      util.ensureFolder(this.destinationPath(this.props.organization));
+      this.destinationRoot(this.props.organization);
+      util.ensureFolder(this.destinationPath(this.props.projectName));
+      this.destinationRoot(this.props.projectName);
+    },
 
     projectfiles: function() {
 
       var files = util.getFilesRecursive(this.templatePath(), '');
       for (var i = files.length - 1; i >= 0; i--) {
-        var dest = files[i].replace('Project', this.props.projectName)
+        var dest = files[i].replaceAll('Project', this.props.projectName)
           .replace('_package', 'package')
-          .replace('Company', this.props.organization);
+          .replaceAll('Company', this.props.organization)
+          .replaceAll('Widget', this.props.widgetName);
         this.fs.copyTpl(
           this.templatePath(files[i]),
           this.destinationPath(dest), {
@@ -138,4 +161,5 @@ module.exports = yeoman.generators.Base.extend({
   install: function() {
     // this.installDependencies();
   }
+
 });

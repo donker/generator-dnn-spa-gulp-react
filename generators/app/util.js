@@ -24,6 +24,17 @@ module.exports = {
       }
     });
     return foundPaths;
+  },
+
+  ensureFolder: function(path) {
+    try {
+      stats = fs.lstatSync(path);
+      if (stats.isDirectory()) {
+        return;
+      }
+    } catch (e) {
+      fs.mkdir(path);
+    }
   }
 
 }
