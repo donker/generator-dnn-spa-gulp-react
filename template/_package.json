@@ -46,6 +46,7 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
+    "gulp-dnn-manifest": "^0.1.1",
     "gulp-dotnet-assembly-info": "^0.1.11",
     "gulp-filter": "^3.0.1",
     "gulp-markdown": "^1.1.0",

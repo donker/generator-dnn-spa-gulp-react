@@ -12,7 +12,7 @@ var gulp = require('gulp'),
   gutil = require('gulp-util'),
   markdown = require('gulp-markdown'),
   rename = require('gulp-rename'),
-  manifest = require('./node_modules/gulp-dnn-manifest/plugin.js');
+  manifest = require('gulp-dnn-manifest');
 
 gulp.task('browserify', function() {
   gulp.src('js/src/<%= props.projectName.toLowerCase() %>.js')
